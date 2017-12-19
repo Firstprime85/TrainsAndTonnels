@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <File name="info" filename="logs/info.log" append="false">
+            <PatternLayout pattern="%d{ISO8601} [%t] [%-5p] (%F:%L) - %msg%n"/>
+            <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT"/>
+        </File>
+        <File name="errors" fileName="logs/error.log" append="false">
+            <PatternLayout pattern="%d{ISO8601} [%t] [%-5p] (%F:%L) - %msg%n"/>
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+    </appenders>
+    <loggers>
+        <Root level="info">
+            <appender-ref ref="info"/>
+            <appender-ref ref="errors"/>
+        </Root>
+    </loggers>
+</configuration>
+
